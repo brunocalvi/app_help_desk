@@ -1,5 +1,8 @@
 <?php
 
+	//comando protegendo paginas restritas
+	session_start();
+
 	//variavel que verifica a altenticacao
 	$usuario_autenticado = false;
 
@@ -24,7 +27,9 @@
 
 	if ($usuario_autenticado) {
 		echo 'Usuario autenticado';
+		$_SESSION['autenticado'] = 'SIM';
 	} else {
+		$_SESSION['autenticado'] = 'NÃO';
 		header('Location: index.php?login=erro');
 	}
 
